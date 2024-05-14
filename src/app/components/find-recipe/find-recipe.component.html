@@ -1,0 +1,62 @@
+<div class="find-recipe">
+  <div class="search-form">
+    <input
+      type="text"
+      placeholder="Search for recipes..."
+      [(ngModel)]="query"
+      (keyup.enter)="searchRecipes()"
+    />
+    <select [(ngModel)]="diet" (change)="searchRecipes()">
+      <option value="">Diet</option>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="vegan">Vegan</option>
+      <option value="gluten free">Gluten Free</option>
+      <option value="dairy free">Dairy Free</option>
+      <option value="ketogenic">Ketogenic</option>
+      <option value="paleo">Paleo</option>
+      <option value="primal">Primal</option>
+      <option value="whole30">Whole30</option>
+    </select>
+    <select [(ngModel)]="cuisine" (change)="searchRecipes()">
+      <option value="">Cuisine</option>
+      <option value="african">African</option>
+      <option value="american">American</option>
+      <option value="british">British</option>
+      <option value="cajun">Cajun</option>
+      <option value="caribbean">Caribbean</option>
+      <option value="chinese">Chinese</option>
+      <option value="eastern european">Eastern European</option>
+      <option value="european">European</option>
+      <option value="french">French</option>
+      <option value="german">German</option>
+      <option value="greek">Greek</option>
+      <option value="indian">Indian</option>
+      <option value="irish">Irish</option>
+      <option value="italian">Italian</option>
+      <option value="japanese">Japanese</option>
+      <option value="jewish">Jewish</option>
+      <option value="korean">Korean</option>
+      <option value="latin american">Latin American</option>
+      <option value="mediterranean">Mediterranean</option>
+      <option value="mexican">Mexican</option>
+      <option value="middle eastern">Middle Eastern</option>
+      <option value="nordic">Nordic</option>
+      <option value="southern">Southern</option>
+      <option value="spanish">Spanish</option>
+      <option value="thai">Thai</option>
+      <option value="vietnamese">Vietnamese</option>
+    </select>
+    <button (click)="searchRecipes()" [disabled]="loading">Search</button>
+  </div>
+
+  <div class="error" *ngIf="error">{{ error }}</div>
+
+  <div class="loader" *ngIf="loading">Loading...</div>
+
+  <div class="recipes" *ngIf="recipes.length > 0">
+    <div *ngFor="let recipe of recipes" (click)="showRecipeDetails(recipe)">
+      <img [src]="recipe.image" alt="{{ recipe.title }}" />
+      <p>{{ recipe.title }}</p>
+    </div>
+  </div>
+</div>

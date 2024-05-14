@@ -1,0 +1,11 @@
+@import "./reset.scss";
+@import "./colors.scss";
+
+body {
+  background-color: $beige;
+
+  p {
+    font-size: 1rem;
+    color: $green-dark;
+  }
+}

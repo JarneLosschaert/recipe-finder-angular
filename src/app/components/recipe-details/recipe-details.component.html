@@ -1,0 +1,35 @@
+<div class="recipe-details" *ngIf="!loading">
+  <div class="content">
+    <div class="header">
+      <h2>{{ recipe.title }}</h2>
+      <div class="scores">
+        <p>Time: {{ recipe.readyInMinutes }} minutes</p>
+        <p>Health score: {{ recipe.healthScore }}</p>
+        <p>Servings: {{ recipe.servings }}</p>
+        <p>Price: ${{ recipe.pricePerServing }}</p>
+      </div>
+    </div>
+    <div class="details">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li *ngFor="let ingredient of recipe.extendedIngredients">
+            <p>
+              {{ ingredient.measures.metric.amount }}
+              {{ ingredient.measures.metric.unitShort }}
+              <span>{{ ingredient.name }}</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <div [innerHTML]="recipe.instructions"></div>
+      </div>
+    </div>
+  </div>
+  <img [src]="recipe.image" alt="{{ recipe.title }}" />
+</div>
+
+<div class="loader" *ngIf="loading">Loading...</div>
+<div class="error" *ngIf="error">{{ error }}</div>
