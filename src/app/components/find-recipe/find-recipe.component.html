@@ -55,8 +55,7 @@
 
   <div class="recipes" *ngIf="recipes.length > 0">
     <div *ngFor="let recipe of recipes" (click)="showRecipeDetails(recipe)">
-      <img [src]="recipe.image" alt="{{ recipe.title }}" />
-      <p>{{ recipe.title }}</p>
+      <recipe-card [recipe]="recipe"></recipe-card>
     </div>
   </div>
 </div>

@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
+import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
     FindRecipeComponent,
     AboutComponent,
     RecipeDetailsComponent,
+    RecipeCardComponent
   ],
   imports: [
     CommonModule,
